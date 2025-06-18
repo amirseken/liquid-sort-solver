@@ -1,0 +1,51 @@
+
+Here's the English translation of the entire task description:
+
+---
+
+### 1. Task: “Liquid Sorting”
+
+Implement a program that solves the popular puzzle game “Liquid Sorting”.
+
+The game is well known, but we will formulate the rules mathematically.
+You are given a number **N** of test tubes, each with the same volume **V**.
+In this task, the volume is discrete and measured in some minimum unit of liquid, which we’ll call “drops”, so **V** is a natural number.
+You are also given **M** different-colored liquids (**N > M**), each of volume **V**.
+The colored liquids are mixed and distributed among **M** test tubes. Drops of different colors do not mix but stack vertically in the test tubes. The remaining (**N - M**) test tubes are empty.
+
+**Goal**: By pouring liquids from one test tube to another, sort them such that each test tube contains drops of only one color.
+
+You can make a move (pouring from test tube A to test tube B) under the following conditions:
+
+* Test tube A has liquid
+* Test tube B has space
+* Only the top drops of one color can be poured
+* You can pour from test tube A to B only if the top drop in B is the same color as the pouring liquid, or if B is empty
+* If there are multiple top drops of the same color in A, you can pour either all of them or as many as B can hold
+
+---
+
+**Example of initial and final state**:
+
+Number all test tubes from left to right, top to bottom starting from 0. Represent each move as a pair (A, B) meaning pouring from test tube A into test tube B.
+
+Then the example can be solved in 43 moves:
+
+```
+( 0, 12) ( 0, 13) ( 2, 13) ( 6,  0) ( 2,  6) ( 3,  2) ( 7, 13) ( 8, 13)
+(10,  0) ( 4, 10) ( 4,  7) (11,  2) ( 3, 11) (12,  3) ( 1, 12) ( 1,  4)
+( 5,  1) ( 5, 12) ( 5,  3) ( 1,  5) ( 4,  1) ( 4,  8) ( 6,  4) ( 6,  1)
+( 7,  6) ( 8,  4) (11,  7) (11,  5) (11, 12) ( 2, 11) ( 2,  8) ( 3,  2)
+( 3, 11) ( 7,  3) ( 7, 12) ( 9,  7) ( 9,  2) ( 9,  7) ( 6,  9) (10,  7)
+(10,  8) ( 3, 10) ( 6,  8)
+```
+
+---
+
+**Program Requirements**:
+
+* Input must be a 2D array of size **N x V**
+* Colors of the liquids can be represented by numbers and/or letters
+* The result of the program must be a sequence of moves that transforms the given initial state into a sorted state
+
+**Note**: The program is **not required** to find the *optimal* solution.
